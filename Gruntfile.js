@@ -138,7 +138,7 @@ module.exports = function(grunt) {
             jslintHappy: false,
             keepArrayIndentation: false,
             keepFunctionIndentation: false,
-                                                 maxPreserveNewlines: 10,                         
+            maxPreserveNewlines: 10,
             preserveNewlines: true,
             spaceBeforeConditional: true,
             spaceInParen: false,

@@ -140,7 +140,11 @@
 
                   var handler = function(value) {
                     if (conf.primitive) {
+                      console.log("scope property " + propertyName + " changed. New value: " + value);
                       el[propertyName] = value;
+                      // if(el.inputElement) {
+                      //   el.inputElement.value = value;
+                      // }
                     } else {
                       angular.copy(value, el[propertyName]);
                     }
@@ -152,11 +156,12 @@
 
                   // Copy the web component's value to the scope 
                   // property value
-
-                  var observer = new PathObserver(el, propertyName);
-
-                  observer.open(function(value) {
+                  el.addEventListener('bind-value-changed', function(e) {
+                    if (scope.$root.$$phase === "$digest")
+                      return;
                     scope.$apply(function() {
+                      var value = e.detail.value;
+                      console.log("paper property " + propertyName + " changed. New value: " + value);
                       if (conf.primitive) {
                         scope[attr] = value;
                       } else {
