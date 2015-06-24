@@ -46,10 +46,10 @@ module.exports = function(grunt) {
           // Will bind the bower:install task
           // with a specific template
           'post-merge': {
-            taskNames: ['npm-install', 'bower:install' ],
+            taskNames: 'npm-install bower:install',
           },
           'post-rewrite': {
-            taskNames: ['npm-install', 'bower:install' ],
+            taskNames: 'npm-install bower:install',
           }
         }
       },
