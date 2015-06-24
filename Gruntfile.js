@@ -143,13 +143,6 @@ module.exports = function(grunt) {
             spaceBeforeConditional: true,
             spaceInParen: false,
             unescapeStrings: false,
-
-
-
-
-
-
-
             wrapLineLength: 0,
             endWithNewline: true
           }
@@ -163,9 +156,9 @@ module.exports = function(grunt) {
     @toc 6.
     */
     // Default task(s).
-    grunt.registerTask('default', ['npm-install']);
+    grunt.registerTask('init', ['githooks', 'bower:install']);
     // grunt.registerTask('default', ['jshint:beforeconcat', 'less:development', 'concat:devJs', 'concat:devCss']);
-    grunt.registerTask('default', ['npm-install', 'githooks', 'uglify:build']);
+    grunt.registerTask('default', ['uglify:build']);
 
   }
   init({}); //initialize here for defaults (init may be called again later within a task)
